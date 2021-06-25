@@ -18,7 +18,7 @@ function App() {
   const submitEmail = async (e) => {
     e.preventDefault();
     // console.log({ mailerState });
-    await fetch("http://localhost:3005/send", {
+    await fetch("https://nodemailer-backend1.herokuapp.com/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -28,7 +28,7 @@ function App() {
       .then((res) => res.json())
       .then(async (res) => {
         const resData = await res;
-        console.log(resData);
+        // console.log(resData);
         if (resData.status === "success") {
           alert("Message Sent");
         } else if (resData.status === "fail") {
@@ -83,7 +83,7 @@ function App() {
             name="message"
             value={mailerState.message}
           />
-          <button>Send Message</button>
+          <button type="submit">Send Message</button>
         </fieldset>
       </form>
     </div>
